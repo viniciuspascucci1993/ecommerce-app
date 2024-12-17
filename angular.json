@@ -1,0 +1,132 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ecommerce-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ecommerce-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/css/animate.css",
+              "src/assets/css/bootstrap-select.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/drift-basic.min.css",
+              "src/assets/css/image-compare-viewer.min.css",
+              "src/assets/css/jquery.fancybox.min.css",
+              "src/assets/css/photoswipe.css",
+              "src/assets/css/styles.css",
+              "src/assets/css/swiper-bundle.min.css"
+            ],
+            "scripts": [
+              "src/assets/js/bootstrap-select.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/carousel.js",
+              "src/assets/js/count-down.js",
+              "src/assets/js/drift.min.js",
+              "src/assets/js/image-compare-viewer.js",
+              "src/assets/js/image-compare-viewer.min.js",
+              "src/assets/js/jquery-validate.js",
+              "src/assets/js/jquery.fancybox.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/jqueryui.min.js",
+              "src/assets/js/lazysize.min.js", 
+              "src/assets/js/main.js",
+              "src/assets/js/model-viewer.min.js",
+              "src/assets/js/multiple-modal.js",
+              "src/assets/js/photoswipe-lightbox.esm.min.js",
+              "src/assets/js/photoswipe.esm.min.js",
+              "src/assets/js/plugin.js",
+              "src/assets/js/rangle-slider.js",
+              "src/assets/js/shop.js",
+              "src/assets/js/swiper-bundle.min.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/zoom.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ecommerce-app:build:production"
+            },
+            "development": {
+              "browserTarget": "ecommerce-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ecommerce-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}
